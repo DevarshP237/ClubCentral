@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Club Profile & Enquire — ClubCentral | Christ University Pune Lavasa</title>
+  <meta name="description" content="Discover detailed charter information, faculty coordinators, objectives, and submit your expression of interest to join clubs at Christ (Deemed to be University), Pune Lavasa Campus.">
+
+  <!-- Google Fonts: Luxury Editorial & Modern Swiss -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600;1,700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Floema Stylesheet -->
+  <link rel="stylesheet" href="css/floema.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23000000' stroke='%23ffffff' stroke-width='4'/><polygon points='50,15 54,32 72,32 58,43 63,60 50,49 37,60 42,43 28,32 46,32' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       FLOEMA-STYLE TOP NAVIGATION (Ultra-clean Capsule Pills)
+       ========================================================================== -->
+  <header class="floema-header" id="navbar">
+    <div class="floema-header-inner">
+      <!-- Left: Floema Brand Mark + Divider + Search -->
+      <div class="floema-brand-group">
+        <a href="index.html" class="floema-brand-wordmark" aria-label="ClubCentral Home">
+          <span>ClubCentral</span>
+          <span class="reg-mark">®</span>
+        </a>
+        <div class="floema-brand-divider"></div>
+        <a href="index.html#explore" class="floema-search-trigger" aria-label="Search clubs" title="Search all 23 clubs">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right: Capsule Pills -->
+      <nav aria-label="Club navigation">
+        <ul class="floema-nav-pills">
+          <li><a href="index.html#explore" class="floema-pill-btn">← ALL CLUBS</a></li>
+          <li><a href="index.html#spotlight-pinned-section" class="floema-pill-btn">SPOTLIGHT</a></li>
+          <li><a href="index.html#events" class="floema-pill-btn">EVENTS</a></li>
+          <li><a href="index.html#about" class="floema-pill-btn">ABOUT</a></li>
+          <li>
+            <button type="button" class="floema-pill-btn active" id="find-community-btn" title="Launch Community Matcher">
+              MATCHER
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="club-profile-container">
+      <!-- Breadcrumb -->
+      <div class="club-breadcrumb">
+        <a href="index.html">CLUBCENTRAL</a>
+        <span>/</span>
+        <a href="index.html#explore">CLUBS</a>
+        <span>/</span>
+        <span id="breadcrumb-club-name" style="color: #ffffff;">LAVASA TREKKERS</span>
+      </div>
+
+      <!-- Hero Card -->
+      <section class="club-hero-card">
+        <div class="club-hero-logo-box">
+          <img id="club-detail-logo" src="assets/logos/2.png" alt="Club Logo">
+        </div>
+        <div class="club-hero-meta">
+          <div class="club-hero-tags">
+            <span class="category-pill" id="club-detail-category">Outdoor Adventure</span>
+            <span class="badge-pill" style="font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.2); border-radius: 9999px; color: #fff;">
+              ● ACTIVE ON CAMPUS
+            </span>
+          </div>
+          <h1 class="club-hero-title" id="club-detail-title">Lavasa Trekkers</h1>
+          <p class="club-hero-slogan" id="club-detail-slogan">"Explore. Experience. Trek Together."</p>
+        </div>
+      </section>
+
+      <!-- Content Grid: 2 Columns -->
+      <div class="club-content-grid">
+        <!-- Left Column: Official About & Objectives -->
+        <div style="display: flex; flex-direction: column; gap: 36px;">
+          <!-- About the Club Card -->
+          <div class="club-card-block">
+            <div class="club-block-header">
+              <span>[ 01 // OFFICIAL CHARTER ]</span>
+              <span style="margin-left: auto;">CHRIST UNIVERSITY PUNE LAVASA</span>
+            </div>
+            <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #ffffff;">About the Club</h2>
+            <p class="club-narrative-text" id="club-detail-about">
+              Loading official charter details...
+            </p>
+          </div>
+
+          <!-- Objectives & Competencies -->
+          <div class="club-card-block">
+            <div class="club-block-header">
+              <span>[ 02 // OBJECTIVES & COMPETENCIES ]</span>
+            </div>
+            <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #ffffff;">What We Pursue</h2>
+            <div class="objectives-flow" id="club-detail-objectives">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Mentors, Contact, and Schedule -->
+        <div style="display: flex; flex-direction: column; gap: 36px;">
+          <!-- Coordinators & Leadership -->
+          <div class="club-card-block">
+            <div class="club-block-header">
+              <span>[ 03 // FACULTY & COORDINATORS ]</span>
+            </div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.35rem; color: #ffffff;">Mentorship & Leadership</h3>
+            <div class="mentors-box">
+              <span class="mentor-title">Official Coordinators</span>
+              <p class="mentor-text" id="club-detail-team">Loading leadership...</p>
+            </div>
+            <div class="mentors-box">
+              <span class="mentor-title">Official University Email</span>
+              <p class="mentor-text" id="club-detail-email" style="font-family: var(--font-mono); font-size: 0.88rem;">
+                mail.lavasa@christuniversity.in
+              </p>
+            </div>
+            <div class="mentors-box" id="instagram-box" style="display:none;">
+              <span class="mentor-title">Social / Community Channel</span>
+              <p class="mentor-text">
+                <a id="club-detail-instagram" href="#" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">
+                  Instagram Channel ↗
+                </a>
+              </p>
+            </div>
+            <div style="margin-top: 8px;">
+              <a id="club-detail-portal-link" href="https://lavasa.christuniversity.in/center/C/clubslavasa" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="font-size: 0.82rem; width: 100%; justify-content: center; text-decoration: none;">
+                View on University Portal ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Meeting Information -->
+          <div class="club-card-block">
+            <div class="club-block-header">
+              <span>[ 04 // SESSIONS & VENUE ]</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div>
+                <span class="mentor-title">Meeting Schedule</span>
+                <p style="font-size: 0.95rem; color: #ffffff; margin-top: 4px;">Weekly active sessions &amp; weekend projects</p>
+              </div>
+              <div>
+                <span class="mentor-title">Campus Venue</span>
+                <p style="font-size: 0.95rem; color: #ffffff; margin-top: 4px;">Pune Lavasa Campus // Sahyadri Valley</p>
+              </div>
+              <div>
+                <span class="mentor-title">Eligibility</span>
+                <p style="font-size: 0.95rem; color: #ffffff; margin-top: 4px;">Open to all registered Christ University Pune Lavasa students across all programs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           BOTTOM SECTION 1: INTERACTIVE ENQUIRE FORM
+           ====================================================================== -->
+      <section class="enquire-section-wrap" id="enquire">
+        <div class="enquire-section-header">
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim);">
+            [ STUDENT INQUIRY DESK ]
+          </span>
+          <h3 style="margin-top: 6px;">Have a Question? Enquire with Club Coordinators</h3>
+          <p>Submit questions regarding auditions, event timings, requirements, or club activities directly to coordinators.</p>
+        </div>
+
+        <form id="club-enquiry-form" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <input type="hidden" id="enquiry-club-id" value="">
+          
+          <div class="form-group">
+            <label for="enquiry-name" class="form-label">YOUR FULL NAME:</label>
+            <input type="text" id="enquiry-name" class="form-input" placeholder="e.g. Ananya Sen" required>
+          </div>
+
+          <div class="form-group">
+            <label for="enquiry-email" class="form-label">CHRIST UNIVERSITY EMAIL:</label>
+            <input type="email" id="enquiry-email" class="form-input" placeholder="name@lavasa.christuniversity.in" required>
+          </div>
+
+          <div class="form-group" style="grid-column: span 2;">
+            <label for="enquiry-subject" class="form-label">INQUIRY TOPIC:</label>
+            <input type="text" id="enquiry-subject" class="form-input" placeholder="e.g. Clarification on upcoming auditions and schedule" required>
+          </div>
+
+          <div class="form-group" style="grid-column: span 2;">
+            <label for="enquiry-message" class="form-label">YOUR QUESTION / ENQUIRY DETAILS:</label>
+            <textarea id="enquiry-message" class="form-textarea" rows="4" placeholder="Type your inquiry here for the student heads and faculty mentor..." required></textarea>
+          </div>
+
+          <div style="grid-column: span 2; display: flex; justify-content: flex-end;">
+            <button type="submit" class="floema-pill-btn active" style="padding: 14px 36px; font-size: 0.95rem; cursor: pointer;">
+              Send Enquiry to Coordinators →
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ======================================================================
+           BOTTOM SECTION 2: BESPOKE CREATIVE JOIN NOW CALLOUT
+           ====================================================================== -->
+      <section class="creative-join-section" id="join-now">
+        <div class="creative-join-badge">
+          <span>● EXPRESSION OF INTEREST</span>
+        </div>
+        <h2 class="creative-join-title" id="creative-join-headline">
+          Ready to be part of the next expedition?
+        </h2>
+        <p class="creative-join-subtitle" id="creative-join-subline">
+          Pack your rucksack, tie your boots, and explore the undiscovered peaks and mist-laden waterfalls of the Sahyadri valley.
+        </p>
+        <button type="button" class="creative-join-btn" id="creative-join-btn">
+          <span id="creative-join-btn-label">Claim Your Trek Pass →</span>
+        </button>
+      </section>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer style="background: #000000; border-top: 1px solid var(--border-subtle); padding: 50px 36px 30px; position: relative; z-index: 2;">
+    <div style="max-width: 1320px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <span style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800; color: #ffffff; letter-spacing: -0.02em;">ClubCentral®</span>
+        <p style="font-family: var(--font-mono); font-size: 0.72rem; color: #666666; margin-top: 4px;">
+          Christ (Deemed to be University) • Pune Lavasa Campus • 23 Active Student Clubs
+        </p>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #555555;">
+        Official Portal Source: <a href="https://lavasa.christuniversity.in/center/C/clubslavasa" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none;">lavasa.christuniversity.in ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS: APPLICATION, COMMUNITY MATCHER, MY APPS
+       ========================================================================== -->
+  <!-- Club Application Form Modal -->
+  <div class="modal-overlay" id="apply-modal" role="dialog" aria-modal="true" aria-labelledby="apply-modal-title">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-header-hero">
+        <h2 id="apply-modal-title" style="font-family: var(--font-heading); font-size: 1.5rem; color: #ffffff;">Club Application Portal</h2>
+        <p style="font-size: 0.85rem; color: #888888; margin-top: 4px;">Submit expression of interest to Christ University club coordinators.</p>
+      </div>
+
+      <div class="modal-body">
+        <form id="club-application-form">
+          <div class="form-group">
+            <label for="apply-club-select" class="form-label">SELECT CLUB:</label>
+            <select id="apply-club-select" class="form-select" required></select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label for="applicant-name" class="form-label">FULL NAME:</label>
+              <input type="text" id="applicant-name" class="form-input" placeholder="e.g. Aarav Sharma" required>
+            </div>
+            <div class="form-group">
+              <label for="applicant-reg" class="form-label">STUDENT REGISTER NUMBER:</label>
+              <input type="text" id="applicant-reg" class="form-input" placeholder="e.g. 23112045" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="applicant-email" class="form-label">CHRIST UNIVERSITY EMAIL:</label>
+            <input type="email" id="applicant-email" class="form-input" placeholder="name@lavasa.christuniversity.in" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 14px;">
+            <div class="form-group">
+              <label for="applicant-program" class="form-label">DEGREE PROGRAM:</label>
+              <select id="applicant-program" class="form-select" required>
+                <option value="B.Sc Data Science">B.Sc Data Science</option>
+                <option value="B.Sc Economics & Analytics">B.Sc Economics &amp; Analytics</option>
+                <option value="BBA / BBA Analytics">BBA / BBA Analytics</option>
+                <option value="B.Com Financial Analytics">B.Com Financial Analytics</option>
+                <option value="BA-LL.B / BBA-LL.B">BA-LL.B / BBA-LL.B</option>
+                <option value="MBA Analytics">MBA Analytics</option>
+                <option value="M.Sc Data Science">M.Sc Data Science</option>
+                <option value="Other Department">Other Department</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="applicant-year" class="form-label">YEAR OF STUDY:</label>
+              <select id="applicant-year" class="form-select" required>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+                <option value="Postgraduate">Postgraduate</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="applicant-statement" class="form-label">STATEMENT OF INTEREST:</label>
+            <textarea id="applicant-statement" class="form-textarea" placeholder="Why do you wish to join this club? What skills do you bring?" required></textarea>
+          </div>
+
+          <button type="submit" class="floema-pill-btn active" style="width: 100%; justify-content: center; padding: 14px; font-size: 0.95rem; margin-top: 8px; cursor: pointer;">
+            <span>Submit Application to Coordinators</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- "Find Your Community" Interactive Matcher Quiz -->
+  <div class="modal-overlay" id="community-modal" role="dialog" aria-modal="true" aria-labelledby="community-modal-title">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-header-hero">
+        <span style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim);">INTERACTIVE MATCHING ENGINE</span>
+        <h2 id="community-modal-title" style="font-family: var(--font-heading); font-size: 1.5rem; color: #ffffff; margin-top: 6px;">Find Your Community in 3 Clicks</h2>
+      </div>
+
+      <div class="modal-body">
+        <div id="matcher-step-1">
+          <h3 style="font-size: 1rem; color: #ffffff; margin-bottom: 12px;">Step 1: What kind of activities excite you the most?</h3>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+            <button type="button" class="floema-pill-btn quiz-option-interest" data-interest="outdoor" style="justify-content: flex-start; text-align: left; padding: 14px 18px; border-radius: 12px; width: 100%;">
+              🏔️ <strong>Outdoor, Trails &amp; Nature Exploration</strong> (Hikes, birdwatching, environmental conservation)
+            </button>
+            <button type="button" class="floema-pill-btn quiz-option-interest" data-interest="arts" style="justify-content: flex-start; text-align: left; padding: 14px 18px; border-radius: 12px; width: 100%;">
+              🎨 <strong>Creative Arts, Cinema &amp; Music</strong> (Photography, dance, film analysis, band jam sessions)
+            </button>
+            <button type="button" class="floema-pill-btn quiz-option-interest" data-interest="gaming" style="justify-content: flex-start; text-align: left; padding: 14px 18px; border-radius: 12px; width: 100%;">
+              🎮 <strong>Gaming, Esports &amp; Anime Culture</strong> (Competitive leagues, game nights, cosplay, tournaments)
+            </button>
+            <button type="button" class="floema-pill-btn quiz-option-interest" data-interest="service" style="justify-content: flex-start; text-align: left; padding: 14px 18px; border-radius: 12px; width: 100%;">
+              🤝 <strong>Community Service &amp; Well-being</strong> (Inclusivity, social work, mindfulness yoga, peer care)
+            </button>
+            <button type="button" class="floema-pill-btn quiz-option-interest" data-interest="academic" style="justify-content: flex-start; text-align: left; padding: 14px 18px; border-radius: 12px; width: 100%;">
+              📚 <strong>Debating, Research &amp; Business</strong> (Oratory, global study admissions, economics, family business)
+            </button>
+          </div>
+        </div>
+
+        <div id="matcher-step-2" style="display: none;">
+          <h3 style="font-size: 1rem; color: #ffffff; margin-bottom: 12px;">Step 2: What is your primary goal on campus?</h3>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+            <button type="button" class="floema-pill-btn quiz-option-goal" data-goal="friends" style="justify-content: flex-start; text-align: left; padding: 14px 18px; border-radius: 12px; width: 100%;">
+              🌟 <strong>Make genuine friends &amp; connect</strong> with people who share my personal passions.
+            </button>
+            <button type="button" class="floema-pill-btn quiz-option-goal" data-goal="skills" style="justify-content: flex-start; text-align: left; padding: 14px 18px; border-radius: 12px; width: 100%;">
+              🚀 <strong>Learn hands-on skills &amp; build a portfolio</strong> (creative projects, competitions, events).
+            </button>
+            <button type="button" class="floema-pill-btn quiz-option-goal" data-goal="recharge" style="justify-content: flex-start; text-align: left; padding: 14px 18px; border-radius: 12px; width: 100%;">
+              🌿 <strong>De-stress, recharge &amp; have fun</strong> away from academic coursework and exams.
+            </button>
+          </div>
+        </div>
+
+        <div id="matcher-results" style="display: none;">
+          <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 4px;">Your Recommended Clubs:</h3>
+          <p style="font-size: 0.85rem; color: #888888; margin-bottom: 14px;">Based on your choices, these student organizations are your ideal match:</p>
+          <div id="matcher-recommendations" style="display: flex; flex-direction: column; gap: 10px;"></div>
+          <button type="button" class="floema-pill-btn" id="matcher-restart-btn" style="margin-top: 12px;">
+            ↺ Retake quiz
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- My Applications Modal -->
+  <div class="modal-overlay" id="my-apps-modal" role="dialog" aria-modal="true" aria-labelledby="my-apps-modal-title">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-header-hero">
+        <h2 id="my-apps-modal-title" style="font-family: var(--font-heading); font-size: 1.5rem; color: #ffffff;">My Applications & Enquiries</h2>
+        <p style="font-size: 0.85rem; color: #888888; margin-top: 4px;">Track submitted expressions of interest and coordinator inquiries.</p>
+      </div>
+      <div class="modal-body" id="my-apps-list"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite">
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/club.js"></script>
+</body>
+</html>

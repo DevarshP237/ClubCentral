@@ -1,0 +1,1153 @@
+/* ==========================================================================
+   ClubCentral — Floema.com Luxury Monochrome Aesthetic
+   Pure Pitch-Black (#000000) Backgrounds & Crisp White (#ffffff) Uniformity
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600;1,700;1,900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-black: #000000;
+  --bg-dark: #070707;
+  --bg-card: #0c0c0c;
+  --bg-card-hover: #141414;
+  --text-white: #ffffff;
+  --text-offwhite: #f0f0f0;
+  --text-dim: #888888;
+  --text-muted: #444444;
+  --border-pill: rgba(255, 255, 255, 0.25);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-white: #ffffff;
+
+  --font-serif-italic: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'SF Mono', 'Roboto Mono', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  font-size: 15px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   1. LOADING SCREEN (Pure Black with Elegant Italic Cursive "ClubCentral")
+   ========================================================================== */
+#floema-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), visibility 1s ease;
+}
+
+#floema-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-cursive-brand {
+  font-family: var(--font-serif-italic);
+  font-style: italic;
+  font-size: clamp(3.2rem, 8vw, 6.5rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cursiveEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+}
+
+.loader-sub-tag {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.6s;
+}
+
+@keyframes cursiveEntrance {
+  0% { opacity: 0; transform: translateY(24px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Loading Percentage at the Bottom (Numbers only, NO progress bar) */
+.loader-percentage {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  user-select: none;
+}
+
+/* ==========================================================================
+   2. FLOEMA-STYLE TOP NAVIGATION (Ultra-clean Capsule Pills)
+   ========================================================================== */
+.floema-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84px;
+  z-index: 1000;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  transition: background-color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.floema-header.scrolled {
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.floema-header-inner {
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Wordmark (Floema Style: Bold modern brand + divider + search) */
+.floema-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+}
+
+.floema-brand-wordmark {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.floema-brand-wordmark .reg-mark {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.floema-brand-divider {
+  width: 1px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.floema-search-trigger {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.floema-search-trigger:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Right Navigation Capsule Pills (Exact Floema Header Design) */
+.floema-nav-pills {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+}
+
+.floema-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-pill);
+  border-radius: 9999px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.22s ease;
+}
+
+.floema-pill-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.floema-pill-btn.active {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ==========================================================================
+   3. FLOEMA HERO LANDING (Center Headline + 3D White Logo & Floating Cards)
+   ========================================================================== */
+.floema-hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 24px 60px;
+  overflow: hidden;
+  background-color: #000000;
+  z-index: 2;
+}
+
+/* Three.js Canvas: Holds 3D Christ Logo & Scattered Floating Cards */
+#floema-3d-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floema-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1080px;
+  margin: 0 auto;
+  pointer-events: auto;
+}
+
+/* Replicating the Floema Headline: "Spaces for people, made for life." */
+.floema-main-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 7vw, 5.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.floema-sub-headline {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  color: var(--text-dim);
+  max-width: 680px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+.floema-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.floema-cta-pill {
+  padding: 14px 34px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.floema-cta-pill.solid {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+}
+
+.floema-cta-pill.solid:hover {
+  background: #d4d4d4;
+  transform: translateY(-2px);
+}
+
+.floema-cta-pill.outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid var(--border-pill);
+}
+
+.floema-cta-pill.outline:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Subtle Scroll Prompt */
+.floema-scroll-indicator {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+
+.floema-scroll-indicator:hover {
+  color: #ffffff;
+}
+
+.floema-scroll-bar {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, #ffffff, transparent);
+  animation: scrollPulse 2s infinite ease-in-out;
+}
+
+@keyframes scrollPulse {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.1% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ==========================================================================
+   4. CLUBS DISPLAY UPON SCROLLING (Product / Organization Showcase)
+   ========================================================================== */
+.section-wrapper {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 120px 48px;
+  position: relative;
+  z-index: 2;
+  background-color: #000000;
+}
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.section-heading-large {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.section-desc-clean {
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  max-width: 720px;
+  line-height: 1.6;
+}
+
+/* Category Filters (Pill Bar) */
+.floema-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 40px 0;
+}
+
+.category-pill {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: #080808;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-pill:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.category-pill.active {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.category-pill .badge-count {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+/* Search Input */
+.floema-search-box {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.floema-search-input {
+  width: 100%;
+  padding: 14px 20px 14px 46px;
+  background: #080808;
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.floema-search-input:focus {
+  border-color: #ffffff;
+}
+
+.floema-search-icon-inside {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   5. SPATIAL CLUBS GRID (23 Official Student Clubs)
+   ========================================================================== */
+.floema-clubs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 32px;
+}
+
+.club-card-floema {
+  background: #080808;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.club-card-floema:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-4px);
+}
+
+.club-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.club-logo-container {
+  width: 68px;
+  height: 68px;
+  background: #000000;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.club-logo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.club-category-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 4px 10px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+}
+
+.club-card-name {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.club-card-description {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+
+.club-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.club-card-action {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: gap 0.2s ease;
+}
+
+.club-card-action:hover {
+  gap: 12px;
+}
+
+/* ==========================================================================
+   6. CAMPUS EVENTS RADAR & ABOUT SECTIONS
+   ========================================================================== */
+.floema-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.floema-event-row {
+  background: #080808;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 28px 36px;
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 32px;
+  align-items: center;
+  transition: border-color 0.2s ease;
+}
+
+.floema-event-row:hover {
+  border-color: #ffffff;
+}
+
+.event-date-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-day-number {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.event-month-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* About Section */
+.floema-about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-quote-box {
+  background: #080808;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 48px;
+}
+
+.about-quote-text {
+  font-family: var(--font-serif-italic);
+  font-style: italic;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   7. MODAL SYSTEM
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(16px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .modal-dialog {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #141414;
+  border: 1px solid var(--border-subtle);
+  color: #ffffff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.modal-header-hero {
+  padding: 36px 36px 28px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.modal-body {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.detail-block {
+  background: #000000;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.detail-block-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.badge-coming-soon {
+  display: inline-flex;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border: 1px dashed var(--border-subtle);
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 13px 18px;
+  background: #000000;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: #ffffff;
+}
+
+/* Toast */
+.toast-notification {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 9999px;
+  padding: 14px 28px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  z-index: 99999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.toast-notification.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .floema-header { padding: 0 24px; }
+  .floema-about-layout { grid-template-columns: 1fr; }
+  .floema-event-row { grid-template-columns: 1fr; }
+  .section-wrapper { padding: 80px 24px; }
+  .club-hero-card { flex-direction: column; text-align: center; }
+  .club-content-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 768px) {
+  .floema-nav-pills { display: none; }
+  .detail-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   8. DEDICATED CLUB PROFILE & ENQUIRY PAGE (club.html)
+   ========================================================================== */
+.club-profile-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 130px 36px 100px;
+}
+
+.club-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 36px;
+}
+
+.club-breadcrumb a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.club-breadcrumb a:hover {
+  opacity: 0.7;
+}
+
+.club-hero-card {
+  background: #090909;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  padding: 56px 48px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.club-hero-card::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.club-hero-logo-box {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #000000;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.club-hero-logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.club-hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.club-hero-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.club-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.club-hero-slogan {
+  font-family: var(--font-serif-italic);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: #cccccc;
+  line-height: 1.4;
+}
+
+/* Two-column layout */
+.club-content-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 56px;
+}
+
+.club-card-block {
+  background: #090909;
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.club-block-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.club-narrative-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #dddddd;
+}
+
+.objectives-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.objective-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 16px;
+  background: #000000;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+}
+
+.objective-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.objective-body {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+/* Coordinators & Metadata */
+.mentors-box {
+  background: #000000;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mentor-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.mentor-text {
+  font-size: 0.95rem;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+/* Enquire Section */
+.enquire-section-wrap {
+  background: #090909;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+  padding: 44px;
+  margin-bottom: 56px;
+}
+
+.enquire-section-header {
+  margin-bottom: 28px;
+}
+
+.enquire-section-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.enquire-section-header p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+/* Creative Join Now Hero Section */
+.creative-join-section {
+  background: #0a0a0a;
+  border: 1px solid #ffffff;
+  border-radius: 24px;
+  padding: 64px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+.creative-join-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 100px;
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.12) 0%, transparent 75%);
+  pointer-events: none;
+}
+
+.creative-join-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.creative-join-title {
+  font-family: var(--font-serif-italic);
+  font-style: italic;
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 400;
+  color: #ffffff;
+  max-width: 820px;
+  margin: 0 auto 16px;
+  line-height: 1.25;
+}
+
+.creative-join-subtitle {
+  font-size: 1.05rem;
+  color: #aaaaaa;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+.creative-join-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 42px;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.creative-join-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+  background-color: #f0f0f0;
+}
+

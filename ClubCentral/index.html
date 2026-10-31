@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ClubCentral — 23 Student Clubs | Christ University Pune Lavasa</title>
+  <meta name="description" content="ClubCentral is the official gateway to explore, enquire, and join all 23 student-led clubs at Christ (Deemed to be University), Pune Lavasa Campus.">
+
+  <!-- Google Fonts: Neutral Swiss / Architectural Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/edolus-loader.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23000000' stroke='%23ffffff' stroke-width='4'/><polygon points='50,15 54,32 72,32 58,43 63,60 50,49 37,60 42,43 28,32 46,32' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. LOADING SCREEN & PRELOADER
+       Pure Black with Elegant Italic Cursive "ClubCentral" & Bottom Percentage
+       ========================================================================== -->
+  <div id="custom-splash-wrapper">
+    <!-- Top & Bottom Black Bands -->
+    <div id="custom-band-top"></div>
+    <div id="custom-band-bottom"></div>
+
+    <!-- Central "ClubCentral" Cursive Wordmark (Only "ClubCentral", no subtitle) -->
+    <div id="custom-splash-logo">
+      <span class="loader-cursive-brand">ClubCentral</span>
+    </div>
+
+    <!-- Loading Percentage at the Bottom (Percentage text only, NO progress bar) -->
+    <div id="custom-bottom-progress-bar-wrap">
+      <div id="custom-progress-text">
+        <span class="roll-col"><span class="roll-num">0</span></span>
+        <span class="roll-col"><span class="roll-num">0</span></span>
+        <span class="roll-col"><span class="roll-num">0</span></span>
+        <span class="pct-sign">%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Magnetic Cursor -->
+  <div id="custom-cursor-dot" aria-hidden="true"></div>
+  <div id="custom-cursor-ring" aria-hidden="true"></div>
+
+  <!-- Real-time 3D Three.js Viewport: Official White Christ Logo & 23 Orbital Club Nodes -->
+  <canvas id="threejs-viewport" aria-hidden="true"></canvas>
+
+  <!-- Hairline Grid Overlay -->
+  <div class="hud-grid-overlay" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       2. TOP HEADER / HUD
+       Clean Minimalist Header: Brand, Navigation links, and Community Matcher
+       ========================================================================== -->
+  <header class="site-header" id="navbar">
+    <div class="header-container">
+      <!-- Left: Clean Brand Wordmark -->
+      <div class="header-left">
+        <a href="#home" class="header-brand-mark" style="text-decoration: none; color: #ffffff; display: flex; align-items: baseline; gap: 8px;">
+          <span style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; letter-spacing: 0.12em; color: #ffffff;">CLUBCENTRAL</span>
+          <span style="font-family: var(--font-mono); font-size: 0.68rem; color: #777777; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 8px;">CHRIST UNIVERSITY • LAVASA</span>
+        </a>
+      </div>
+
+      <!-- Center: Navigation Links -->
+      <nav class="header-center-nav" aria-label="Main Navigation">
+        <ul style="display: flex; gap: 28px; list-style: none; margin: 0; padding: 0;">
+          <li><a href="#home" class="nav-link-pill" style="color: #ffffff; text-decoration: none; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;">HOME</a></li>
+          <li><a href="#spotlight-pinned-section" class="nav-link-pill" style="color: #888888; text-decoration: none; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;">SPOTLIGHT</a></li>
+          <li><a href="#explore" class="nav-link-pill" style="color: #888888; text-decoration: none; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;">CLUBS DIRECTORY</a></li>
+          <li><a href="#events" class="nav-link-pill" style="color: #888888; text-decoration: none; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;">EVENTS</a></li>
+          <li><a href="#about" class="nav-link-pill" style="color: #888888; text-decoration: none; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;">ABOUT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Minimalist Controls (Community Matcher) -->
+      <div class="header-right">
+        <!-- Community Matcher Trigger -->
+        <button type="button" class="btn-primary" id="find-community-btn" style="padding: 7px 18px; font-size: 0.75rem;" title="Community Matcher">
+          <span>FIND COMMUNITY</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         3. HERO STAGE: SPACIOUS, CINEMATIC DARK STAGE WITH 3D CHRIST LOGO
+         Official White Christ Logo in 3D with slow speed rotation
+         ========================================================================== -->
+    <section class="hero-stage" id="home">
+      <!-- Center 3D Stage Placeholder (Aligned with Three.js 3D rotating Christ logo) -->
+      <div class="hero-crest-stage-placeholder"></div>
+
+      <h1 class="hero-main-title">
+        Find your people.<br>
+        Find your purpose.
+      </h1>
+
+      <p class="hero-description">
+        Connecting all 23 official student-run clubs across technology, cinema, debate, arts, esports, and outdoor trails. Zero students left behind.
+      </p>
+
+      <!-- Calls to Action -->
+      <div class="hero-cta-group">
+        <a href="#explore" class="btn-primary">
+          <span>Explore 23 Clubs</span>
+        </a>
+        <a href="#events" class="btn-secondary">
+          <span>Upcoming Events</span>
+        </a>
+      </div>
+
+      <!-- Minimalist Scroll Prompt -->
+      <a href="#spotlight-pinned-section" class="hero-scroll-prompt">
+        <span>Scroll to explore 23 orbital clubs</span>
+        <div class="scroll-line-indicator"></div>
+      </a>
+    </section>
+
+    <!-- ==========================================================================
+         4. PINNED SHOWCASE DECK (Horizontal Scroll Scrubbing)
+         Requirement 4: Button renamed to "Enquire More" and linked to club.html
+         ========================================================================== -->
+    <section id="spotlight-pinned-section">
+      <div class="deck-container" id="deck-track">
+        <!-- Slide 1: Lavasa Trekkers -->
+        <div class="deck-slide">
+          <div class="deck-card edolus-container">
+            <img src="assets/logos/2.png" alt="Lavasa Trekkers" class="deck-card-logo">
+            <div class="deck-card-content">
+              <span class="deck-meta-index">[ NODE 01 // OUTDOOR ADVENTURE ]</span>
+              <h2 class="deck-group-name">Lavasa Trekkers</h2>
+              <p class="deck-description">
+                Unites adventure enthusiasts to explore Lavasa’s natural beauty through trekking, outdoor activities, and community efforts like clean-ups, tree planting, and themed photography competitions.
+              </p>
+              <div style="margin-top: 18px;">
+                <a href="club.html?id=lavasa-trekkers" class="btn-primary" style="text-decoration:none;">
+                  Enquire More →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Varsity E-Sports -->
+        <div class="deck-slide">
+          <div class="deck-card edolus-container">
+            <img src="assets/logos/20.png" alt="Varsity E-Sports" class="deck-card-logo">
+            <div class="deck-card-content">
+              <span class="deck-meta-index">[ NODE 02 // GAMING &amp; ESPORTS ]</span>
+              <h2 class="deck-group-name">Varsity E-Sports</h2>
+              <p class="deck-description">
+                A dynamic club offering students opportunities to compete in gaming and develop skills in game creation, blending esports excitement with hands-on game development learning.
+              </p>
+              <div style="margin-top: 18px;">
+                <a href="club.html?id=varsity-esports" class="btn-primary" style="text-decoration:none;">
+                  Enquire More →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Pika Play -->
+        <div class="deck-slide">
+          <div class="deck-card edolus-container">
+            <img src="assets/logos/22.png" alt="Pika Play" class="deck-card-logo">
+            <div class="deck-card-content">
+              <span class="deck-meta-index">[ NODE 03 // GAMING &amp; ANIME ]</span>
+              <h2 class="deck-group-name">Pika Play (Anime &amp; Games)</h2>
+              <p class="deck-description">
+                A vibrant community for fans of gaming and anime, offering game nights, screenings, quizzes, and cosplay events that spark creativity and foster connection.
+              </p>
+              <div style="margin-top: 18px;">
+                <a href="club.html?id=pika-play" class="btn-primary" style="text-decoration:none;">
+                  Enquire More →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Inclusiverse -->
+        <div class="deck-slide">
+          <div class="deck-card edolus-container">
+            <img src="assets/logos/6.png" alt="Inclusiverse" class="deck-card-logo">
+            <div class="deck-card-content">
+              <span class="deck-meta-index">[ NODE 04 // COMMUNITY &amp; INCLUSION ]</span>
+              <h2 class="deck-group-name">Inclusiverse</h2>
+              <p class="deck-description">
+                Empowers children with special needs through sports and cultural activities, nurturing confidence, connection, and belonging while inspiring a movement toward a more inclusive and equitable future.
+              </p>
+              <div style="margin-top: 18px;">
+                <a href="club.html?id=inclusiverse" class="btn-primary" style="text-decoration:none;">
+                  Enquire More →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. BROWSE BY INTEREST TRACKS
+         ========================================================================== -->
+    <section class="section-wrapper" id="domains">
+      <div class="section-header">
+        <span class="section-telemetry-tag">[ 02 // DOMAIN TRACKS ]</span>
+        <h2 class="section-title">Explore by Domain</h2>
+        <p class="section-subtitle">Select any passion track to filter the 23 orbital clubs.</p>
+      </div>
+
+      <div class="categories-container" id="categories-container">
+        <!-- Populated by js/app.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. COMPLETE 23-CLUB SPATIAL DIRECTORY
+         Requirement 4: All cards contain "Enquire More" linking to individual club pages
+         ========================================================================== -->
+    <section class="section-wrapper" id="explore">
+      <div class="section-header">
+        <span class="section-telemetry-tag">[ 03 // COMPLETE DIRECTORY ]</span>
+        <h2 class="section-title">All 23 Student Clubs</h2>
+        <p class="section-subtitle">
+          Directly synchronised with Christ University Pune Lavasa's official student club charters.
+        </p>
+      </div>
+
+      <!-- Control Panel -->
+      <div class="directory-control-panel edolus-container">
+        <div class="search-bar-row">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="club-search-input" class="search-input" placeholder="Search by club name, activity (e.g. trekking, gaming, debate, dance, film)..." aria-label="Search clubs">
+            <button type="button" id="clear-search-btn" class="clear-search-btn" aria-label="Clear search">&times;</button>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <label for="category-filter-select" style="font-family: var(--font-mono); font-size: 0.72rem; color: #888888;">CATEGORY:</label>
+            <select id="category-filter-select" class="form-select">
+              <!-- Populated by js/app.js -->
+            </select>
+
+            <label for="sort-select" style="font-family: var(--font-mono); font-size: 0.72rem; color: #888888; margin-left: 10px;">SORT:</label>
+            <select id="sort-select" class="form-select">
+              <option value="az">A TO Z</option>
+              <option value="za">Z TO A</option>
+            </select>
+          </div>
+
+          <div id="results-count" style="font-family: var(--font-mono); font-size: 0.75rem; color: #888888;">
+            Loading clubs...
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state-card" id="empty-state" style="display: none; text-align: center; padding: 60px 24px; background: #040404; border: 1px dashed var(--border-hairline);">
+        <p style="font-size: 1.1rem; color: #ffffff; margin-bottom: 8px;">No clubs matched your query</p>
+        <p style="font-size: 0.85rem; color: #888888; margin-bottom: 18px;">Try clearing search keywords or switching category filters.</p>
+        <button type="button" class="btn-secondary" id="reset-filters-btn">Reset All Filters</button>
+      </div>
+
+      <!-- Directory Cards Grid (Populated by js/app.js with 'Enquire More →' actions) -->
+      <div class="directory-grid" id="directory-grid"></div>
+    </section>
+
+    <!-- ==========================================================================
+         7. CAMPUS EVENTS CALENDAR
+         ========================================================================== -->
+    <section class="section-wrapper" id="events">
+      <div class="section-header">
+        <span class="section-telemetry-tag">[ 04 // ACTIVITY RADAR ]</span>
+        <h2 class="section-title">Upcoming Club Events</h2>
+        <p class="section-subtitle">
+          Workshops, valley trails, scrims, and cultural open mics organized by student clubs.
+        </p>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 14px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <label for="event-club-filter" style="font-family: var(--font-mono); font-size: 0.72rem; color: #888888;">FILTER BY CLUB:</label>
+          <select id="event-club-filter" class="form-select">
+            <option value="all">ALL HOST CLUBS</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn-secondary" id="open-submit-event-btn">
+          <span>+ Post an Event</span>
+        </button>
+      </div>
+
+      <div class="events-timeline" id="events-list">
+        <!-- Rendered by js/app.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. ABOUT SECTION & HOW JOINING WORKS
+         ========================================================================== -->
+    <section class="section-wrapper" id="about">
+      <div class="about-grid">
+        <div class="about-narrative">
+          <span class="section-telemetry-tag">[ 05 // SYSTEM MISSION ]</span>
+          <h2 class="section-title" style="text-align: left;">Bridging every student to campus life.</h2>
+          <p style="color: #999999; font-size: 1rem; line-height: 1.6; margin-bottom: 16px;">
+            At Christ University Pune Lavasa ("The Hub of Analytics"), campus life is rich with student initiatives. However, students frequently miss club inductions due to fragmented channels and feel left out.
+          </p>
+          <p style="color: #999999; font-size: 0.92rem; line-height: 1.6; margin-bottom: 24px;">
+            <strong>ClubCentral</strong> provides a single, high-fidelity source of truth. We celebrate the unique identity of all 23 clubs, provide transparent breakdowns of activities, and connect students directly to coordinators.
+          </p>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button type="button" class="btn-secondary" id="open-submit-listing-btn">
+              <span>Submit or Update Club Listing</span>
+            </button>
+            <a href="https://lavasa.christuniversity.in/center/C/clubslavasa" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="border: 1px solid var(--border-hairline);">
+              <span>Official Lavasa Portal ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="about-card edolus-container">
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: #ffffff; margin-bottom: 6px;">How Joining Works</h3>
+          <p style="font-family: var(--font-mono); font-size: 0.72rem; color: #888888; text-transform: uppercase;">3-Step Campus Integration Pipeline:</p>
+
+          <div class="step-process-list">
+            <div class="step-item">
+              <div class="step-number">01</div>
+              <div class="step-text">
+                <h4 style="color: #fff; margin-bottom: 2px;">Inspect Node &amp; Enquire</h4>
+                <p style="font-size: 0.85rem; color: #888888;">Browse clubs or launch the Matcher, click "Enquire More" on any club to review full objectives and coordinators.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">02</div>
+              <div class="step-text">
+                <h4 style="color: #fff; margin-bottom: 2px;">Submit Expression of Interest</h4>
+                <p style="font-size: 0.85rem; color: #888888;">Provide your student register number, program, and statement through the creative club join action.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">03</div>
+              <div class="step-text">
+                <h4 style="color: #fff; margin-bottom: 2px;">Induction &amp; Onboarding</h4>
+                <p style="font-size: 0.85rem; color: #888888;">Student heads and faculty coordinators review expressions of interest, verify via university email, and induct you into active sessions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         9. CLOSING CALL TO ACTION
+         ========================================================================== -->
+    <section class="section-wrapper" style="padding-top: 0;">
+      <div class="closing-cta-card edolus-container">
+        <h2 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3.8vw, 2.6rem); color: #ffffff; margin-bottom: 12px;">
+          Ready to find your community in the valley?
+        </h2>
+        <p style="color: #888888; max-width: 600px; margin: 0 auto 28px; font-size: 1rem;">
+          Whether you want to climb Western Ghats trails, compete in collegiate esports, direct short films, or play live acoustic music — your community is waiting.
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="#explore" class="btn-primary">
+            <span>Explore All 23 Clubs</span>
+          </a>
+          <button type="button" class="btn-secondary" onclick="document.getElementById('find-community-btn').click()">
+            <span>Launch Community Matcher</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer style="background: #000000; border-top: 1px solid var(--border-hairline); padding: 50px 36px 30px; position: relative; z-index: 2;">
+    <div style="max-width: 1440px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <span style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800; color: #ffffff; letter-spacing: 0.1em;">CLUBCENTRAL</span>
+        <p style="font-family: var(--font-mono); font-size: 0.72rem; color: #666666; margin-top: 4px;">
+          Christ (Deemed to be University) • Pune Lavasa Campus • 23 Active Student Clubs
+        </p>
+      </div>
+
+      <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #555555;">
+        Source: <a href="https://lavasa.christuniversity.in/center/C/clubslavasa" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none;">lavasa.christuniversity.in ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS: APPLICATION, COMMUNITY MATCHER, MY APPS
+       ========================================================================== -->
+  <!-- Club Application Form Modal -->
+  <div class="modal-overlay" id="apply-modal" role="dialog" aria-modal="true" aria-labelledby="apply-modal-title">
+    <div class="modal-dialog edolus-container">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-header-hero">
+        <h2 id="apply-modal-title" style="font-family: var(--font-heading); font-size: 1.5rem; color: #ffffff;">Club Application Portal</h2>
+        <p style="font-size: 0.85rem; color: #888888; margin-top: 4px;">Submit expression of interest to Christ University club coordinators.</p>
+      </div>
+
+      <div class="modal-body">
+        <form id="club-application-form">
+          <div class="form-group">
+            <label for="apply-club-select" class="form-label">SELECT CLUB:</label>
+            <select id="apply-club-select" class="form-select" required></select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label for="applicant-name" class="form-label">FULL NAME:</label>
+              <input type="text" id="applicant-name" class="form-input" placeholder="e.g. Aarav Sharma" required>
+            </div>
+            <div class="form-group">
+              <label for="applicant-reg" class="form-label">STUDENT REGISTER NUMBER:</label>
+              <input type="text" id="applicant-reg" class="form-input" placeholder="e.g. 23112045" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="applicant-email" class="form-label">CHRIST UNIVERSITY EMAIL:</label>
+            <input type="email" id="applicant-email" class="form-input" placeholder="name@lavasa.christuniversity.in" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 14px;">
+            <div class="form-group">
+              <label for="applicant-program" class="form-label">DEGREE PROGRAM:</label>
+              <select id="applicant-program" class="form-select" required>
+                <option value="B.Sc Data Science">B.Sc Data Science</option>
+                <option value="B.Sc Economics & Analytics">B.Sc Economics &amp; Analytics</option>
+                <option value="BBA / BBA Analytics">BBA / BBA Analytics</option>
+                <option value="B.Com Financial Analytics">B.Com Financial Analytics</option>
+                <option value="BA-LL.B / BBA-LL.B">BA-LL.B / BBA-LL.B</option>
+                <option value="MBA Analytics">MBA Analytics</option>
+                <option value="M.Sc Data Science">M.Sc Data Science</option>
+                <option value="Other Department">Other Department</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="applicant-year" class="form-label">YEAR OF STUDY:</label>
+              <select id="applicant-year" class="form-select" required>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+                <option value="Postgraduate">Postgraduate</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="applicant-statement" class="form-label">STATEMENT OF INTEREST:</label>
+            <textarea id="applicant-statement" class="form-textarea" placeholder="Why do you wish to join this club? What skills do you bring?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 13px; font-size: 0.85rem; margin-top: 8px;">
+            <span>Submit Application to Coordinators</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- "Find Your Community" Interactive Matcher Quiz -->
+  <div class="modal-overlay" id="community-modal" role="dialog" aria-modal="true" aria-labelledby="community-modal-title">
+    <div class="modal-dialog edolus-container">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-header-hero">
+        <span class="telemetry-status-pill" style="font-size: 0.68rem;">INTERACTIVE MATCHING ENGINE</span>
+        <h2 id="community-modal-title" style="font-family: var(--font-heading); font-size: 1.5rem; color: #ffffff; margin-top: 6px;">Find Your Community in 3 Clicks</h2>
+      </div>
+
+      <div class="modal-body">
+        <div id="matcher-step-1">
+          <h3 style="font-size: 1rem; color: #ffffff; margin-bottom: 12px;">Step 1: What kind of activities excite you the most?</h3>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+            <button type="button" class="btn-secondary quiz-option-interest" data-interest="outdoor" style="justify-content: flex-start; text-align: left; padding: 11px 14px;">
+              🏔️ <strong>Outdoor, Trails &amp; Nature Exploration</strong> (Hikes, birdwatching, environmental conservation)
+            </button>
+            <button type="button" class="btn-secondary quiz-option-interest" data-interest="arts" style="justify-content: flex-start; text-align: left; padding: 11px 14px;">
+              🎨 <strong>Creative Arts, Cinema &amp; Music</strong> (Photography, dance, film analysis, band jam sessions)
+            </button>
+            <button type="button" class="btn-secondary quiz-option-interest" data-interest="gaming" style="justify-content: flex-start; text-align: left; padding: 11px 14px;">
+              🎮 <strong>Gaming, Esports &amp; Anime Culture</strong> (Competitive leagues, game nights, cosplay, tournaments)
+            </button>
+            <button type="button" class="btn-secondary quiz-option-interest" data-interest="service" style="justify-content: flex-start; text-align: left; padding: 11px 14px;">
+              🤝 <strong>Community Service &amp; Well-being</strong> (Inclusivity, social work, mindfulness yoga, peer care)
+            </button>
+            <button type="button" class="btn-secondary quiz-option-interest" data-interest="academic" style="justify-content: flex-start; text-align: left; padding: 11px 14px;">
+              📚 <strong>Debating, Research &amp; Business</strong> (Oratory, global study admissions, economics, family business)
+            </button>
+          </div>
+        </div>
+
+        <div id="matcher-step-2" style="display: none;">
+          <h3 style="font-size: 1rem; color: #ffffff; margin-bottom: 12px;">Step 2: What is your primary goal on campus?</h3>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+            <button type="button" class="btn-secondary quiz-option-goal" data-goal="friends" style="justify-content: flex-start; text-align: left; padding: 11px 14px;">
+              🌟 <strong>Make genuine friends &amp; connect</strong> with people who share my personal passions.
+            </button>
+            <button type="button" class="btn-secondary quiz-option-goal" data-goal="skills" style="justify-content: flex-start; text-align: left; padding: 11px 14px;">
+              🚀 <strong>Learn hands-on skills &amp; build a portfolio</strong> (creative projects, competitions, events).
+            </button>
+            <button type="button" class="btn-secondary quiz-option-goal" data-goal="recharge" style="justify-content: flex-start; text-align: left; padding: 11px 14px;">
+              🌿 <strong>De-stress, recharge &amp; have fun</strong> away from academic coursework and exams.
+            </button>
+          </div>
+        </div>
+
+        <div id="matcher-results" style="display: none;">
+          <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 4px;">Your Recommended Clubs:</h3>
+          <p style="font-size: 0.85rem; color: #888888; margin-bottom: 14px;">Based on your choices, these student organizations are your ideal match:</p>
+          <div id="matcher-recommendations"></div>
+          <button type="button" class="btn-ghost" id="matcher-restart-btn" style="margin-top: 8px;">
+            ↺ Retake quiz
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- My Applications Modal -->
+  <div class="modal-overlay" id="my-apps-modal" role="dialog" aria-modal="true" aria-labelledby="my-apps-modal-title">
+    <div class="modal-dialog edolus-container">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-header-hero">
+        <h2 id="my-apps-modal-title" style="font-family: var(--font-heading); font-size: 1.5rem; color: #ffffff;">My Applications &amp; Enquiries</h2>
+        <p style="font-size: 0.85rem; color: #888888; margin-top: 4px;">Track submitted expressions of interest and coordinator inquiries.</p>
+      </div>
+      <div class="modal-body" id="my-apps-list"></div>
+    </div>
+  </div>
+
+  <!-- Submit / Update Listing Modal -->
+  <div class="modal-overlay" id="submit-listing-modal" role="dialog" aria-modal="true" aria-labelledby="listing-modal-title">
+    <div class="modal-dialog edolus-container">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-header-hero">
+        <h2 id="listing-modal-title" style="font-family: var(--font-heading); font-size: 1.5rem; color: #ffffff;">Submit Club Updates</h2>
+        <p style="font-size: 0.85rem; color: #888888; margin-top: 4px;">For student heads and faculty mentors to propose updates to club schedules.</p>
+      </div>
+      <div class="modal-body">
+        <form id="club-listing-form">
+          <div class="form-group">
+            <label for="listing-name" class="form-label">CLUB NAME:</label>
+            <input type="text" id="listing-name" class="form-input" placeholder="e.g. Lavasa Trekkers" required>
+          </div>
+          <div class="form-group">
+            <label for="listing-desc" class="form-label">OFFICIAL UPDATE DETAILS:</label>
+            <textarea id="listing-desc" class="form-textarea" placeholder="Provide schedule, contact details, or activity updates..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="listing-submitter" class="form-label">YOUR NAME &amp; ROLE:</label>
+            <input type="text" id="listing-submitter" class="form-input" placeholder="e.g. Student Secretary" required>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px; margin-top: 8px;">
+            <span>Submit Update for Verification</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Submit Event Modal -->
+  <div class="modal-overlay" id="submit-event-modal" role="dialog" aria-modal="true" aria-labelledby="event-modal-title">
+    <div class="modal-dialog edolus-container">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-header-hero">
+        <h2 id="event-modal-title" style="font-family: var(--font-heading); font-size: 1.5rem; color: #ffffff;">Post a Campus Event</h2>
+        <p style="font-size: 0.85rem; color: #888888; margin-top: 4px;">Publish upcoming club activities to the campus radar.</p>
+      </div>
+      <div class="modal-body">
+        <form id="submit-event-form">
+          <div class="form-group">
+            <label for="new-event-title" class="form-label">EVENT TITLE:</label>
+            <input type="text" id="new-event-title" class="form-input" placeholder="e.g. Western Ghats Monsoon Trail" required>
+          </div>
+          <div class="form-group">
+            <label for="new-event-host" class="form-label">HOST CLUB:</label>
+            <select id="new-event-host" class="form-select" required></select>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label for="new-event-date" class="form-label">DATE:</label>
+              <input type="date" id="new-event-date" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="new-event-time" class="form-label">TIME:</label>
+              <input type="text" id="new-event-time" class="form-input" placeholder="e.g. 5:30 PM - 7:30 PM" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="new-event-loc" class="form-label">CAMPUS LOCATION:</label>
+            <input type="text" id="new-event-loc" class="form-input" placeholder="e.g. Central Block Amphitheatre" required>
+          </div>
+          <div class="form-group">
+            <label for="new-event-desc" class="form-label">DESCRIPTION:</label>
+            <textarea id="new-event-desc" class="form-textarea" placeholder="Event briefing and registration notes..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px; margin-top: 8px;">
+            <span>Publish to ClubCentral Radar</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite">
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <!-- Locally Hosted Production Scripts -->
+  <script src="js/lenis.min.js"></script>
+  <script src="js/three.min.js"></script>
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/edolus-canvas.js"></script>
+  <script src="js/edolus-loader.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
